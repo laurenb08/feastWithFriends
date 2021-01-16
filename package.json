@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint **/*.js --quiet",
+    "lint": "eslint --quiet",
     "test": "npm run lint"
   },
   "repository": {
