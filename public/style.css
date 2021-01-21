@@ -1,6 +1,6 @@
-:root{
+body{
     background-image: url("../public/img/brooke-lark-wMzx2nBdeng-unsplash.jpg");
-    background-color: white;
+    /* background-color: white; */
     background-size: 100%;
     background-attachment: fixed;
     background-position: center;
@@ -11,3 +11,12 @@
     padding: 0;
     margin: 0;
 }
+
+.signin{
+    margin: 0!important;
+    padding: 0!important;
+    
+    
+
+}
+
