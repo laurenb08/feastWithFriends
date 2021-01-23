@@ -1,4 +1,4 @@
-body{
+.loginPage{
     background-image: url("../public/img/brooke-lark-wMzx2nBdeng-unsplash.jpg");
     /* background-color: white; */
     background-size: 100%;
@@ -15,7 +15,18 @@ body{
 .signin{
     margin: 0!important;
     padding: 0!important;
-    
-    
+}
 
+.profilePage {
+    background-image: url("../public/img/bec4c2.png");
+    /* background-color: white; */
+    background-size: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
