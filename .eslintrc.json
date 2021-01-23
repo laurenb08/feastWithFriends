@@ -5,40 +5,40 @@
         "node": true
     },
     "rules": {
-        "no-duplicate-case":"error",
-        "no-empty":"error",
-        "no-extra-semi":"error",
-        "no-func-assign": "error",
-        "no-irregular-whitespace":"error",
-        "no-unreachable": "error",
-        "curly": "error",
-        "dot-notation": "error",
-        "eqeqeq": "error",
-        "no-empty-function": "error",
-        "no-multi-spaces": "error",
-        "no-mixed-spaces-and-tabs": "error",
-        "no-trailing-spaces": "error",
-        "default-case": "error",
-        "no-fallthrough": "error",
-        "no-unused-vars": "error",
-        "no-use-before-define": "error",
-        "no-redeclare": "error",
-        "camelcase": "error",
-        "brace-style": "error",
+        "no-duplicate-case":"warning",
+        "no-empty":"warning",
+        "no-extra-semi":"warning",
+        "no-func-assign": "warning",
+        "no-irregular-whitespace":"warning",
+        "no-unreachable": "warning",
+        "curly": "warning",
+        "dot-notation": "warning",
+        "eqeqeq": "warning",
+        "no-empty-function": "warning",
+        "no-multi-spaces": "warning",
+        "no-mixed-spaces-and-tabs": "warning",
+        "no-trailing-spaces": "warning",
+        "default-case": "warning",
+        "no-fallthrough": "warning",
+        "no-unused-vars": "warning",
+        "no-use-before-define": "warning",
+        "no-redeclare": "warning",
+        "camelcase": "warning",
+        "brace-style": "warning",
         "indent": [
-            "error",
+            "warning",
             2
         ],
         "linebreak-style": [
-            "error",
+            "warning",
             "unix"
         ],
         "quotes": [
-            "error",
+            "warning",
             "double"
         ],
         "semi": [
-            "error",
+            "warning",
             "always"
         ]
     }
