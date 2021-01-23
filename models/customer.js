@@ -1,4 +1,8 @@
-module.exports = function(sequelize, DataTypes) {
+// module.exports = function(sequelize, DataTypes) {
+
+const {Sequelize, Model, DataTypes} = require("sequelize");
+const sequelize = require("../config");
+
   var Customer = sequelize.define("Customer", {
     name: {
       type: DataTypes.TEXT,
@@ -42,5 +46,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  return Customer;
-};
+
+  module.exports = Customer;
