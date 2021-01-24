@@ -1,6 +1,5 @@
-body{
+.loginPage{
     background-image: url("../public/img/brooke-lark-wMzx2nBdeng-unsplash.jpg");
-    /* background-color: white; */
     background-size: 100%;
     background-attachment: fixed;
     background-position: center;
@@ -10,13 +9,42 @@ body{
     width: 100%;
     padding: 0;
     margin: 0;
+    font-family: 'Josefin Slab', serif;
+    font-size: 25px;
 }
 
 .signin{
-    margin: 0!important;
-    padding: 0!important;
-    
-    
-
+    background-color: rgba(123, 163, 131, 0.5);
+    vertical-align: middle !important;
+    margin: 10px;
+    padding: 10px;
+    font-family: 'Josefin Slab', serif;
+    font-size: 25px;
 }
 
+.profilePage {
+    background-image: url("../public/img/bec4c2.png");
+    background-size: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: 'Josefin Slab', serif;
+    font-size: 25px;
+}
+
+#profileColumn {
+    vertical-align: middle !important;
+    font-family: 'Josefin Slab', serif;
+    font-size: 25px;
+}
+
+#profileName {
+
+    font-family: 'Amatic SC', cursive;
+    font-size: 75px;
+}
