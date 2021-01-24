@@ -1,6 +1,14 @@
-const db = require("../models");
+const models = require("../models");
 
-// Routes
+// API Routes
 // =============================================================
 module.exports = function(app) {
+
+  // GET route for getting all of the customers
+  app.get("/api/customers", function(req, res) {
+    models.Customer.findAll({}).then(function(dbCustomers) {
+      res.json(dbCustomers);
+    });
+  });
+
 };
