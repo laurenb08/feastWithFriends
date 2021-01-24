@@ -12,7 +12,6 @@ let sequelize;
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
-  console.log(config);
   sequelize = new Sequelize(process.env.DB_NAME || config.database, process.env.DB_USER || config.username, process.env.DB_PASSWORD || config.password, config);
 }
 
