@@ -11,6 +11,17 @@ module.exports = function(app) {
     });
   });
 
+  // GET route for getting one customer
+  app.get("/api/customers/:id", function (req, res) {
+    models.Customer.findOne({
+      where: {
+        id: req.params.id
+      } // add include if we decide to reference other tables
+    }).then(function(dbCustomer) {
+      res.json(dbCustomer);
+    });
+  });
+
   // POST route for saving a new customer
   app.post("/api/customers", function(req, res) {
     console.log(req.body);
