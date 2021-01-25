@@ -24,8 +24,10 @@ module.exports = function(app){
         res.sendFile(path.join(__dirname, "../profile.html"));
     });
 
-    app.get("*", function(req, res) {
-        // res.sendFile(path.join(__dirname, "../public/login.html"));
+    app.get("/", function(req, res) {
+        if (req.user) {
+            res.redirect("/profile");
+        }
         res.sendFile(path.join(__dirname, "../login.html"));
     });
 
