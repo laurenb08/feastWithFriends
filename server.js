@@ -1,6 +1,8 @@
 require('dotenv').config();
 const express = require("express");
 const session = require("express-session");
+var exphbs = require("express-handlebars");
+
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
 
@@ -16,6 +18,10 @@ const db = require("./models");
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// set handlebars
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 // Static directory
 app.use(express.static("public"));
