@@ -6,29 +6,33 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 // Routes
 // =============================================================
-module.exports = function (app) {
+// module.exports = function (app) {
 
     // index route
-    app.get("/login", function (req, res) {
+    router.get("/login", function (req, res) {
         // res.sendFile(path.join(__dirname, "../public/login.html"));
-        res.sendFile(path.join(__dirname, "../login.html"));
+        // res.sendFile(path.join(__dirname, "../login.html"));
+        res.render("index");
     });
 
-    app.get("/signup", function (req, res) {
+    router.get("/signup", function (req, res) {
         // res.sendFile(path.join(__dirname, "../public/signup.html"));
-        res.sendFile(path.join(__dirname, "../signup.html"));
+        // res.sendFile(path.join(__dirname, "../signup.html"));
+        res.render("signup");
     });
 
-    app.get("/profile", function (req, res) {
+    router.get("/profile", function (req, res) {
         // res.sendFile(path.join(__dirname, "../public/profile.html"));
-        res.sendFile(path.join(__dirname, "../profile.html"));
+        // res.sendFile(path.join(__dirname, "../profile.html"));
+        res.render("profile");
     });
 
-    app.get("/", function (req, res) {
+    router.get("/", function (req, res) {
         if (req.user) {
             res.redirect("/profile");
         }
         res.render("index");
     });
 
-};
+// };
+module.exports = router;

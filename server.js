@@ -1,10 +1,12 @@
 require('dotenv').config();
 const express = require("express");
 const session = require("express-session");
-var exphbs = require("express-handlebars");
+const exphbs = require("express-handlebars");
+const exphbsSections = require("express-handlebars-sections");
 
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
+// const path = require("path"); do we need this?
 
 // Sets up the Express App
 // =============================================================
@@ -20,11 +22,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // set handlebars
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+const hbs = exphbs.create({ defaultLayout: "main"});
+exphbsSections(hbs);
+app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 // Static directory
 app.use(express.static("public"));
+// app.use(express.static(path.join(__dirname, "public"))); // use this one instead?
 
 // We need to use sessions to keep track of our user's login status
 app.use(
@@ -35,22 +40,13 @@ app.use(passport.session());
 
 // Routes
 // =============================================================
-// require("./routes/api-routes.js")(app);
-require("./routes/html-routes.js")(app);
-// require("./routes/authroutes.js")(app);
-
+const customerRoutes = require("./routes/html-routes.js");
 const authRoutes = require("./routes/customer-routes");
-// const htmlRoutes = require("./routes/htmlRoutes");
-// const apiRoutes = require("./routes/api-routes");
+app.use( customerRoutes, authRoutes );
 
-// app.use(
-//   authRoutes,
-//   htmlRoutes,
-//   apiRoutes
-// );
-app.use( authRoutes );
-
-db.sequelize.sync({ force: true }).then(function () {
+// use first one to reset database during testing, otherwise use second line
+// db.sequelize.sync({ force: true }).then(function () {
+db.sequelize.sync().then(function () {
   app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
   })
