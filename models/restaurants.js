@@ -1,12 +1,14 @@
 const {Sequelize, Model, DataTypes} = require("sequelize");
-const sequelize = require("../config");
+// const sequelize = require("../config/index");
 
-const Restaurant = sequelize.define("Restaurant", {
-    name: {
-        type: DataTypes.STRING,
-        allowNull: false
-    }
-});
+module.exports = function(sequelize, DataTypes) {
+    const Restaurant = sequelize.define("Restaurant", {
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
+    });
+    return Restaurant;
+};
 
-module.exports = Restaurant;
 
