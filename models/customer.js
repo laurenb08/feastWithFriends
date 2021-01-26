@@ -2,13 +2,12 @@
 const bcrypt = require("bcryptjs");
 
 const { Sequelize, Model, DataTypes} = require("sequelize");
-// const sequelize = require("../config/index");
 
 module.exports = function(sequelize, DataTypes) {
   const Customer = sequelize.define("Customer", {
     name: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      // allowNull: false,
       validate: {
         len: [1]
       }
@@ -73,5 +72,3 @@ module.exports = function(sequelize, DataTypes) {
   });
   return Customer;
 };
-
-  // module.exports = Customer;
