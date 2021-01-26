@@ -1,5 +1,7 @@
 const path = require("path");
 const router = require("express").Router();
+const passport = require("../config/passport");
+
 
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -21,10 +23,11 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
         res.render("signup");
     });
 
-    router.get("/profile", function (req, res) {
+    // passport.authenticate("local")
+    router.get("/profile",  function (req, res) {
         // res.sendFile(path.join(__dirname, "../public/profile.html"));
         // res.sendFile(path.join(__dirname, "../profile.html"));
-        res.render("profile");
+        res.render("profile", {user: req.user});
     });
 
     router.get("/", function (req, res) {
