@@ -44,8 +44,8 @@ const authRoutes = require("./routes/customer-routes");
 // );
 app.use( authRoutes );
 
-db.sequelize.sync({ force: true }).then(function() {
-    app.listen(PORT, function() {
-      console.log("App listening on PORT " + PORT);
-    })
-  }).catch((err) => { throw err });
+db.sequelize.sync({ force: true }).then(function () {
+  app.listen(PORT, function () {
+    console.log("App listening on PORT " + PORT);
+  })
+}).catch((err) => { throw err });
