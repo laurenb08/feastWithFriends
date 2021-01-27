@@ -6,7 +6,9 @@
           class="d-flex flex-column justify-content-center align-middle col-md-5"
         >
           <!-- User name -->
-          <h1 id="profileName" class="display-4 text-center" data-id="{{this.id}}">{{req.body.name}}</h1>
+          <h1 id="profileName" class="display-4 text-center" data-id="{{this.id}}">{{user.name}}</h1>
+        <h2>Welcome <span class="member-name"></span></h2>
+
           <!-- user restrictions -->
           <form>
           <div class="form-check">
@@ -92,6 +94,13 @@
               Kosher
             </label>
           </div>
+          <button type="button" class="btn btn-primary justify-items-center" id="update-preferences">
+            Update Preferences
+          </button>
+          <button type="button" class="btn btn-primary justify-items-center" id="logout">
+            Logout
+          </button>
+
           </form>
           <!-- user selection -->
           <select class="form-select" aria-label="Default select example">

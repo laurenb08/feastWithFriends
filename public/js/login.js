@@ -29,6 +29,7 @@ $(document).ready(() => {
         password: password
       })
         .then(() => {
+          console.log("HELLO");
           window.location.replace("/profile");
           // If there's an error, log the error
         })

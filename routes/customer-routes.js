@@ -3,7 +3,7 @@ const db = require("../models");
 const router = require("express").Router();
 const passport = require("../config/passport");
 
-
+console.log(typeof db.Customer);
 // Using the passport.authenticate middleware with our local strategy.
 // If the user has valid login credentials, send them to the members page.
 // Otherwise the user will be sent an error
@@ -46,11 +46,13 @@ router.get("/api/user_data", (req, res) => {
   } else {
     // Otherwise send back the user's email and id
     // Sending back a password, even a hashed password, isn't a good idea
-    res.json({
-      name: req.user.name,
-      email: req.user.email,
-      id: req.user.id
-    });
+    res.render("profile", {user: req.user});
+    
+    // res.json({
+    //   name: req.user.name,
+    //   email: req.user.email,
+    //   id: req.user.id
+    // });
   }
 });
 
@@ -68,7 +70,7 @@ router.get("/api/customers/:id", function (req, res) {
         id: req.params.id
       } // add include if we decide to reference other tables
     }).then(function(dbCustomer) {
-      res.json(dbCustomer);
+      res.render("profile", dbCustomer);
     });
   });
 
