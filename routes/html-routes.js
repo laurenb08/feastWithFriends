@@ -1,34 +1,41 @@
 const path = require("path");
 const router = require("express").Router();
+const passport = require("../config/passport");
+
 
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 // Routes
 // =============================================================
-module.exports = function (app) {
+// module.exports = function (app) {
 
     // index route
-    app.get("/login", function (req, res) {
+    router.get("/login", function (req, res) {
         // res.sendFile(path.join(__dirname, "../public/login.html"));
-        res.sendFile(path.join(__dirname, "../login.html"));
+        // res.sendFile(path.join(__dirname, "../login.html"));
+        res.render("index");
     });
 
-    app.get("/signup", function (req, res) {
+    router.get("/signup", function (req, res) {
         // res.sendFile(path.join(__dirname, "../public/signup.html"));
-        res.sendFile(path.join(__dirname, "../signup.html"));
+        // res.sendFile(path.join(__dirname, "../signup.html"));
+        res.render("signup");
     });
 
-    app.get("/profile", function (req, res) {
+    // passport.authenticate("local")
+    router.get("/profile",  function (req, res) {
         // res.sendFile(path.join(__dirname, "../public/profile.html"));
-        res.sendFile(path.join(__dirname, "../profile.html"));
+        // res.sendFile(path.join(__dirname, "../profile.html"));
+        res.render("profile", {user: req.user});
     });
 
-    app.get("/", function (req, res) {
+    router.get("/", function (req, res) {
         if (req.user) {
             res.redirect("/profile");
         }
         res.render("index");
     });
 
-};
+// };
+module.exports = router;

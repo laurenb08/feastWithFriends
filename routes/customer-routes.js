@@ -3,7 +3,7 @@ const db = require("../models");
 const router = require("express").Router();
 const passport = require("../config/passport");
 
-
+console.log(typeof db.Customer);
 // Using the passport.authenticate middleware with our local strategy.
 // If the user has valid login credentials, send them to the members page.
 // Otherwise the user will be sent an error
@@ -20,6 +20,7 @@ router.post("/api/login", passport.authenticate("local"), (req, res) => {
 // otherwise send back an error
 router.post("/api/signup", (req, res) => {
   db.Customer.create({
+    name: req.body.name,
     email: req.body.email,
     password: req.body.password
   })
@@ -45,10 +46,13 @@ router.get("/api/user_data", (req, res) => {
   } else {
     // Otherwise send back the user's email and id
     // Sending back a password, even a hashed password, isn't a good idea
-    res.json({
-      email: req.user.email,
-      id: req.user.id
-    });
+    res.render("profile", {user: req.user});
+    
+    // res.json({
+    //   name: req.user.name,
+    //   email: req.user.email,
+    //   id: req.user.id
+    // });
   }
 });
 
@@ -66,11 +70,11 @@ router.get("/api/customers/:id", function (req, res) {
         id: req.params.id
       } // add include if we decide to reference other tables
     }).then(function(dbCustomer) {
-      res.json(dbCustomer);
+      res.render("profile", dbCustomer);
     });
   });
 
-  // POST route for saving a new customer
+  // POST route for saving a new customer - probably don't need this one - delete this and just use update
 router.post("/api/customers", function(req, res) {
     console.log(req.body);
     // create takes an argument of an object describing the item we want to
@@ -109,7 +113,7 @@ router.delete("/api/customers/:id", function(req, res) {
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
     db.Customer.update({
-      name: req.body.name,
+      // name: req.body.name,
       // email: req.body.email,
       // password: req.body.password,
       vegan: req.body.vegan,
