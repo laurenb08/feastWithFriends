@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
   const Customer = sequelize.define("Customer", {
     name: {
       type: DataTypes.TEXT,
-      // allowNull: false,
+      allowNull: false,
       validate: {
         len: [1]
       }
@@ -29,23 +29,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       defaultValue: 0
     },
-    lactoseIntolerance: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: 0
-    },
     vegetarian: {
       type: DataTypes.BOOLEAN,
       defaultValue: 0
     },
-    nutAllergy: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: 0
-    },
     glutenIntolerance: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: 0
-    },
-    shellfishAllergy: {
       type: DataTypes.BOOLEAN,
       defaultValue: 0
     },

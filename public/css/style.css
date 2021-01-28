@@ -23,7 +23,7 @@
 }
 
 .profilePage {
-    background-image: url("../public/img/bec4c2.png");
+    background-image: url("/img/bec4c2.png");
     background-size: 100%;
     background-attachment: fixed;
     background-position: center;

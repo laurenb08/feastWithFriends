@@ -29,12 +29,11 @@ $(document).ready(() => {
         password: password
       })
         .then(() => {
-          console.log("HELLO");
+          console.log("User has logged in.");
           window.location.replace("/profile");
-          // If there's an error, log the error
-        })
+        }) // If there's an error, log the error
         .catch(err => {
-          console.log(err);
+          console.log("Login error: " + err);
         });
     }
   });
