@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // set handlebars
-const hbs = exphbs.create({ defaultLayout: "main"});
+const hbs = exphbs.create({ defaultLayout: "main" });
 exphbsSections(hbs);
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
@@ -42,7 +42,7 @@ app.use(passport.session());
 // =============================================================
 const customerRoutes = require("./routes/html-routes.js");
 const authRoutes = require("./routes/customer-routes");
-app.use( customerRoutes, authRoutes );
+app.use(customerRoutes, authRoutes);
 
 // use first one to reset database during testing, otherwise use second line
 // db.sequelize.sync({ force: true }).then(function () {
