@@ -21,9 +21,10 @@ $(document).ready(() => {
       $.ajax("/api/customers/", {
         type: "PUT",
         data: preferences
-      }).then(function() {
+      }).then(function(req, res) {
         console.log("preferences updated!");
-        location.reload();
+        // location.reload(true);
+        res.render("profile", {user: req.user});
       }).catch(err => {
         console.log("Error: " + err);
       });
