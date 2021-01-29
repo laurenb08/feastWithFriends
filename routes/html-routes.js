@@ -33,7 +33,8 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
                 Authorization: `Bearer ${API_KEY}`,
             }
         }).then((results) => {
-            let restaurants = JSON.stringify(results.data.businesses);
+            let restaurants = results.data.businesses;
+            let profileObject = {user: req.user, restaurants: restaurants};
 
             console.log(results.data.businesses);
             console.log(results.data.businesses[0].name);
@@ -41,8 +42,7 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
             console.log(results.data.businesses[0].image_url);
             console.log(results.data.businesses[0].display_phone);
             console.log(results.data.businesses[0].url);
-            res.render("profile", {user: req.user});
-            res.render("profile", restaurants);
+            res.render("profile", profileObject);
         });
 
         // res.sendFile(path.join(__dirname, "../public/profile.html"));
