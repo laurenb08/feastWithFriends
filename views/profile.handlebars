@@ -95,8 +95,8 @@
             <div class="row">
               <div class="col-lg-4">
                 <!-- Restaurant Cards Populate Here with #each -->
-                <div class="card p-3 bg-light">
-                  {{#each restaurants}}
+                {{#each restaurants}}
+                <div class="card p-3 bg-light m-1">
                   <img
                     src={{this.image_url}}
                     class="card-img-top img-fluid"
@@ -106,9 +106,9 @@
                     <h5 class="card-title">{{this.name}}</h5>
                     <p class="card-text">{{this.display_phone}}</p>
                     <a href="{{this.url}}" class="btn btn-primary">Website</a>
-                    {{/each}}
                   </div>
                 </div>
+                {{/each}}
               </div>
 
               {{!-- <div class="col-lg-4">
