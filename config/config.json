@@ -16,7 +16,7 @@
   "production": {
     // "username": "root",
     // "password": null,
-    "database": "feastwithfriends",
+    // "database": "DB_JAWSDATABASE",
     // "host": "127.0.0.1",
     "dialect": "mysql",
     "use_env_variable": "JAWSDB_URL"
