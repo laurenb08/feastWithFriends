@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": null,
-    "password": null,
-    "database": null,
+    "username": "root",
+    "password": "password",
+    "database": "feastwithfriends",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
