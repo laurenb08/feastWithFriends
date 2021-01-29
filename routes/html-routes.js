@@ -34,7 +34,7 @@ const { SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION } = require("constants");
             }
         }).then((results) => {
 
-            // console.log(results);
+            console.log(results.data.businesses);
             res.render("profile", {user: req.user});
 
         });
