@@ -81,15 +81,17 @@
             <div class="row">
               <div class="col-lg-4">
                 <div class="card p-3 bg-light">
+                  {{#each restaurants}}
                   <img
-                    src="http://s3-media4.fl.yelpcdn.com/bphoto/6He-NlZrAv2mDV-yg6jW3g/o.jpg"
+                    src={{this.image_url}}
                     class="card-img-top img-fluid"
                     alt="food-pic"
                   />
                   <div class="card-body">
-                    <h5 class="card-title">Restaurant</h5>
-                    <p class="card-text">Address, Phone Number</p>
-                    <a href="#" class="btn btn-primary">Website</a>
+                    <h5 class="card-title">{{this.name}}</h5>
+                    <p class="card-text">{{this.display_phone}}</p>
+                    <a href="{{this.url}}" class="btn btn-primary">Website</a>
+                    {{/each}}
                   </div>
                 </div>
               </div>
@@ -144,6 +146,5 @@
 
 {{#section 'scripts'}}
     <script type="text/javascript" src="js/member.js"></script>
-    <script type="text/javascript" src="js/yelpapi.js"></script>
 
 {{/section}}

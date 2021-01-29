@@ -33,7 +33,7 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
                 Authorization: `Bearer ${API_KEY}`,
             }
         }).then((results) => {
-            let restaurants = JSON.stringify(results.data.business);
+            let restaurants = JSON.stringify(results.data.businesses);
 
             console.log(results.data.businesses);
             console.log(results.data.businesses[0].name);
