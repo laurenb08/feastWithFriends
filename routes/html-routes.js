@@ -28,7 +28,22 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 
     // passport.authenticate("local")
     router.get("/profile",  function (req, res) {
-        axios.get("https://api.yelp.com/v3/businesses/search?categories=Vegetarian&location=Seattle&limit=6", {
+        let yelpURL = "https://api.yelp.com/v3/businesses/search?categories=";
+        if (req.user.vegan) {
+            yelpURL += "Vegan";
+        }
+        if (req.user.vegetarian) {
+            yelpURL += "Vegetarian";
+        }
+        if (req.user.kosher) {
+            yelpURL += "Kosher";
+        }
+        if (req.user.glutenIntolerance) {
+            yelpURL += "Gluten-Free";
+        }
+        yelpURL += "&location=Seattle&limit=6";
+
+        axios.get(yelpURL, {
             headers: {
                 Authorization: `Bearer ${API_KEY}`,
             }
@@ -43,7 +58,9 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
             console.log(results.data.businesses[0].display_phone);
             console.log(results.data.businesses[0].url);
             res.render("profile", profileObject);
-        });
+        }).catch((error) => {
+            console.log(error);
+          });
 
         // res.sendFile(path.join(__dirname, "../public/profile.html"));
         // res.sendFile(path.join(__dirname, "../profile.html"));
