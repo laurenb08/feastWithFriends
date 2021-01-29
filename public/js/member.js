@@ -2,19 +2,32 @@ $(document).ready(() => {
     // This file just does a GET request to figure out which user is logged in
     // and updates the HTML on the page
     $.get("/api/user_data").then(data => {
-      console.log(data);
-      // $(".member-name").text(data.email);
+      // console.log(data);
+      console.log("api/user_data called")
     });
 
     $("#update-preferences").on("click", function() {
-      // to do - get data from profile.handlebars checkboxes (add ids!)
-      const preferences = {};
-      $.post("/api/customers", {body: preferences }).then(data => {
-        console.log(data);
-        // body.vegan
+      const preferences = {
+        "id": $('#profileName').data('id'),
+        "vegan": $("#veganCheck").prop("checked") ? true : false,
+        "vegetarian": $("#vegetarianCheck").prop("checked") ? true : false,
+        "glutenIntolerance": $("#glutenCheck").prop("checked") ? true : false,
+        "kosher": $("#kosherCheck").prop("checked") ? true : false
+      };
+      console.log(preferences);
+      console.log($('#profileName'))
+      $.ajax("/api/customers/", {
+        type: "PUT",
+        data: preferences
+      }).then(function(req, res) {
+        console.log("preferences updated!");
+        // location.reload(true);
+        // res.render("profile", {user: req.user});
+        window.location.replace("/profile");
+
+      }).catch(err => {
+        console.log("Error: " + err);
       });
     })
-
-    // to do - listen for logout button and call logout route
 
   });

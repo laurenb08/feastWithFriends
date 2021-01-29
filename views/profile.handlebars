@@ -7,9 +7,8 @@
           class="d-flex flex-column justify-content-center align-middle col-md-5"
         >
           <!-- User name -->
-          <h1 id="profileName" class="display-4 text-center" data-id="{{this.id}}">{{user.name}}</h1>
-        <h2>Welcome <span class="member-name"></span></h2>
-
+          <h2>Welcome</h2>
+          <h1 id="profileName" class="display-4 text-center" data-id="{{user.id}}">{{user.name}}</h1>
           <!-- user restrictions -->
           <form>
           <div class="form-check">
@@ -17,9 +16,10 @@
               class="form-check-input"
               type="checkbox"
               value=""
-              id="flexCheckDefault"
+              id="veganCheck"
+              {{#if user.vegan}} checked {{/if}}
             />
-            <label class="change-vegan" for="flexCheckDefault">
+            <label class="change-vegan" for="veganCheck">
               Vegan
             </label>
           </div>
@@ -28,8 +28,8 @@
               class="form-check-input"
               type="checkbox"
               value=""
-              id="flexCheckChecked"
-              checked
+              id="vegetarianCheck"
+              {{#if user.vegetarian}} checked {{/if}}
             />
             <label class="form-check-label" for="flexCheckChecked">
               Vegetarian
@@ -40,10 +40,10 @@
               class="form-check-input"
               type="checkbox"
               value=""
-              id="flexCheckChecked"
-              checked
+              id="glutenCheck"
+              {{#if user.glutenIntolerance}} checked {{/if}}
             />
-           <label class="form-check-label" for="flexCheckChecked">
+            <label class="form-check-label" for="flexCheckChecked">
               Gluten Free
             </label>
           </div>
@@ -52,8 +52,8 @@
               class="form-check-input"
               type="checkbox"
               value=""
-              id="flexCheckChecked"
-              checked
+              id="kosherCheck"
+              {{#if user.kosher}} checked {{/if}}
             />
             <label class="form-check-label" for="flexCheckChecked">
               Kosher
@@ -62,7 +62,7 @@
           <button type="button" class="btn btn-primary justify-items-center" id="update-preferences">
             Update Preferences
           </button>
-          <button type="button" class="btn btn-primary justify-items-center" id="logout">
+          <button type="button" class="btn btn-primary justify-items-center" id="logout" onclick="window.location.href='/logout'">
             Logout
           </button>
 

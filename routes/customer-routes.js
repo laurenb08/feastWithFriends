@@ -74,30 +74,7 @@ router.get("/api/customers/:id", function (req, res) {
     });
   });
 
-  // POST route for saving a new customer - probably don't need this one - delete this and just use update
-router.post("/api/customers", function(req, res) {
-    console.log(req.body);
-    // create takes an argument of an object describing the item we want to
-    // insert into our table. In this case we just we pass in an object with a text
-    // and complete property (req.body)
-    db.Customer.create({
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password,
-      vegan: req.body.vegan,
-      lactoseIntolerance: req.body.lactoseIntolerance,
-      vegetarian: req.body.vegetarian,
-      nutAllergy: req.body.nutAllergy,
-      glutenIntolerance: req.body.glutenIntolerance,
-      shellfishAllergy: req.body.shellfishAllergy,
-      kosher: req.body.kosher
-    }).then(function(dbCustomers) {
-      // We have access to the new todo as an argument inside of the callback function
-      res.json(dbCustomers);
-    });
-  });
-
-  // DELETE route for deleting customers (get the id of the todo to be deleted from req.params.id)
+// DELETE route for deleting customers (get the id of the todo to be deleted from req.params.id)
 router.delete("/api/customers/:id", function(req, res) {
     db.Customer.destroy({
       where: {
@@ -112,16 +89,12 @@ router.delete("/api/customers/:id", function(req, res) {
   router.put("/api/customers", function(req, res) {
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
+    console.log(req.body);
+
     db.Customer.update({
-      // name: req.body.name,
-      // email: req.body.email,
-      // password: req.body.password,
       vegan: req.body.vegan,
-      lactoseIntolerance: req.body.lactoseIntolerance,
       vegetarian: req.body.vegetarian,
-      nutAllergy: req.body.nutAllergy,
       glutenIntolerance: req.body.glutenIntolerance,
-      shellfishAllergy: req.body.shellfishAllergy,
       kosher: req.body.kosher
     }, {
       where: {
@@ -129,6 +102,7 @@ router.delete("/api/customers/:id", function(req, res) {
       }
     }).then(function(dbCustomers) {
       res.json(dbCustomers);
+      console.log(dbCustomers);
     });
   });
 
