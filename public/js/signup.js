@@ -33,7 +33,7 @@ $(document).ready(() => {
         password: password
       })
         .then(() => {
-          window.location.replace("/profile"); // does this need to be a redirect?
+          window.location.replace("/profile"); 
           // If there's an error, handle it by throwing up a bootstrap alert
         })
         .catch(handleLoginErr);
