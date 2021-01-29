@@ -1,16 +1,19 @@
   <div class="profilePage">
-    <h1 class="profileHeader">Feast with Friends</h1>
+    <h1 class="profileHeader text-center">Feast with Friends</h1>
     <div class="container-fluid">
       <div class="row">
+        <!-- User Profile Column -->
         <div
           id="profileColumn"
           class="d-flex flex-column justify-content-center align-middle col-md-5"
         >
-          <!-- User name -->
-          <h2>Welcome</h2>
+          <!-- Display User name -->
+          <h2 class="text-center">Welcome</h2>
           <h1 id="profileName" class="display-4 text-center" data-id="{{user.id}}">{{user.name}}</h1>
-          <!-- user restrictions -->
-          <form>
+
+          <!-- Display form to allow User to select dietary restrictions -->
+          <form class="m-3">
+          <p>Your dietary restrictions:</p>
           <div class="form-check">
             <input
               class="form-check-input"
@@ -59,20 +62,31 @@
               Kosher
             </label>
           </div>
-          <button type="button" class="btn btn-primary justify-items-center" id="update-preferences">
+          </form>
+
+          <!-- Display form to allow User to type specific city -->
+          <form class="m-3">
+            <p class="mt-2">Your city:</p>
+              <input type="city" class="form-control mb-3" id="userCity" placeholder="Enter city">
+          </form>
+
+          <!-- Button to update changes to dietary preferences -->
+          <button type="button" class="btn btn-secondary justify-items-center mt-3" id="update-preferences">
             Update Preferences
           </button>
-          <button type="button" class="btn btn-primary justify-items-center" id="logout" onclick="window.location.href='/logout'">
+
+          <!-- Logout Button -->
+          <button type="button" class="btn btn-secondary justify-items-center mt-3" id="logout" onclick="window.location.href='/logout'">
             Logout
           </button>
 
-          </form>
-          
-          <button type="button" class="btn btn-primary justify-items-center mt-3">
+          <!-- Button to call Yelp API and see search results in the Cards Column-->
+          <button type="button" class="btn btn-primary justify-items-center mt-3 mb-5">
             See Suggestions
           </button>
         </div>
 
+        <!-- Restaurant Cards Column -->
         <div
           id="restaurantColumn"
           class="col-md-7 d-inline-flex flex-column justify-content-center align-items-center pt-3"
@@ -80,20 +94,24 @@
           <div class="container gx-3">
             <div class="row">
               <div class="col-lg-4">
+                <!-- Restaurant Cards Populate Here with #each -->
                 <div class="card p-3 bg-light">
+                  {{#each restaurants}}
                   <img
-                    src="http://s3-media4.fl.yelpcdn.com/bphoto/6He-NlZrAv2mDV-yg6jW3g/o.jpg"
+                    src={{this.image_url}}
                     class="card-img-top img-fluid"
                     alt="food-pic"
                   />
                   <div class="card-body">
-                    <h5 class="card-title">Restaurant</h5>
-                    <p class="card-text">Address, Phone Number</p>
-                    <a href="#" class="btn btn-primary">Website</a>
+                    <h5 class="card-title">{{this.name}}</h5>
+                    <p class="card-text">{{this.display_phone}}</p>
+                    <a href="{{this.url}}" class="btn btn-primary">Website</a>
+                    {{/each}}
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4">
+
+              {{!-- <div class="col-lg-4">
                 <div class="card p-3 bg-light">
                   <img
                     src="https://s3-media1.fl.yelpcdn.com/bphoto/howYvOKNPXU9A5KUahEXLA/o.jpg"
@@ -107,6 +125,7 @@
                   </div>
                 </div>
               </div>
+
               <div class="col-lg-4">
                 <div class="card p-3 bg-light">
                   <img
@@ -120,8 +139,9 @@
                     <a href="#" class="btn btn-primary">Website</a>
                   </div>
                 </div>
-              </div>
-              <div class="col-lg-4">
+              </div> --}}
+
+              {{!-- <div class="col-lg-4">
                 <div class="card p-3 bg-light">
                   <img
                     src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8Zm9vZHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
@@ -134,7 +154,8 @@
                     <a href="#" class="btn btn-primary">Website</a>
                   </div>
                 </div>
-              </div>
+              </div> --}}
+
             </div>
           </div>
         </div>
@@ -144,6 +165,4 @@
 
 {{#section 'scripts'}}
     <script type="text/javascript" src="js/member.js"></script>
-    <script type="text/javascript" src="js/yelpapi.js"></script>
-
 {{/section}}
