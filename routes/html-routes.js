@@ -15,14 +15,10 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 
     // index route
     router.get("/login", function (req, res) {
-        // res.sendFile(path.join(__dirname, "../public/login.html"));
-        // res.sendFile(path.join(__dirname, "../login.html"));
         res.render("index");
     });
 
     router.get("/signup", function (req, res) {
-        // res.sendFile(path.join(__dirname, "../public/signup.html"));
-        // res.sendFile(path.join(__dirname, "../signup.html"));
         res.render("signup");
     });
 
@@ -41,7 +37,7 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
         if (req.user.glutenIntolerance) {
             yelpURL += "Gluten-Free";
         }
-        yelpURL += "&location=Seattle&limit=6";
+        yelpURL += `&location=${req.user.city}&limit=6`;
 
         axios.get(yelpURL, {
             headers: {
@@ -51,19 +47,11 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
             let restaurants = results.data.businesses;
             let profileObject = {user: req.user, restaurants: restaurants};
 
-            console.log(results.data.businesses);
-            console.log(results.data.businesses[0].name);
-            console.log(results.data.businesses[0].rating);
-            console.log(results.data.businesses[0].image_url);
-            console.log(results.data.businesses[0].display_phone);
-            console.log(results.data.businesses[0].url);
             res.render("profile", profileObject);
         }).catch((error) => {
             console.log(error);
           });
 
-        // res.sendFile(path.join(__dirname, "../public/profile.html"));
-        // res.sendFile(path.join(__dirname, "../profile.html"));
         
     });
 

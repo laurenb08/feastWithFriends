@@ -93,6 +93,7 @@ router.delete("/api/customers/:id", function(req, res) {
 
     db.Customer.update({
       vegan: req.body.vegan,
+      city: req.body.city,
       vegetarian: req.body.vegetarian,
       glutenIntolerance: req.body.glutenIntolerance,
       kosher: req.body.kosher

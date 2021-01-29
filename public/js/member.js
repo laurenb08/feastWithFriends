@@ -9,6 +9,7 @@ $(document).ready(() => {
     $("#update-preferences").on("click", function() {
       const preferences = {
         "id": $('#profileName').data('id'),
+        "city": $('#userCity').val(),
         "vegan": $("#veganCheck").prop("checked") ? true : false,
         "vegetarian": $("#vegetarianCheck").prop("checked") ? true : false,
         "glutenIntolerance": $("#glutenCheck").prop("checked") ? true : false,
