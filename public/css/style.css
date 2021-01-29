@@ -1,5 +1,5 @@
 .background{
-    background-image: url("/img/brooke-lark-wMzx2nBdeng-unsplash.jpg");
+    background-image: url("../img/brooke-lark-wMzx2nBdeng-unsplash.jpg");
     background-size: 100%;
     background-attachment: fixed;
     background-position: center;
@@ -7,7 +7,7 @@
     background-size: cover;
     height: 100%;
     width: 100%;
-    padding: 0;
+    padding: 75px;
     margin: 0;
     font-family: 'Josefin Slab', serif;
     font-size: 25px;
@@ -16,14 +16,14 @@
 .login{
     background-color: rgba(123, 163, 131, 0.5);
     vertical-align: middle !important;
-    margin: 250px;
+    margin: 100px;
     padding: 50px;
     font-family: 'Josefin Slab', serif;
     font-size: 25px;
 }
 
 .profilePage {
-    background-image: url("/img/bec4c2.png");
+    background-image: url("../img/bec4c2.png");
     background-size: 100%;
     background-attachment: fixed;
     background-position: center;
@@ -33,6 +33,15 @@
     width: 100%;
     padding: 0;
     margin: 0;
+    font-family: 'Josefin Slab', serif;
+    font-size: 25px;
+}
+
+.signup{
+    background-color: rgba(123, 163, 131, 0.5);
+    vertical-align: middle !important;
+    margin: 125px;
+    padding: 75px;
     font-family: 'Josefin Slab', serif;
     font-size: 25px;
 }
@@ -47,4 +56,25 @@
 
     font-family: 'Amatic SC', cursive;
     font-size: 75px;
+}
+
+.signupHeader{
+    text-align: center;
+}
+
+.loginLink{
+    text-align: center;
+}
+
+.header{
+    font-family: 'Amatic SC', cursive;
+    font-size: 150px;
+    text-align: center;
+}
+
+.profileHeader{
+    font-family: 'Amatic SC', cursive;
+    font-size: 100px;
+    text-align: left;
+    
 }
