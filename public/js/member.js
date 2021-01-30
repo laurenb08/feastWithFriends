@@ -2,8 +2,8 @@ $(document).ready(() => {
     // This file just does a GET request to figure out which user is logged in
     // and updates the HTML on the page
     $.get("/api/user_data").then(data => {
-      // console.log(data);
-      console.log("api/user_data called")
+      console.log("api/user_data called:" + data);
+
     });
 
     $("#update-preferences").on("click", function() {
@@ -22,8 +22,6 @@ $(document).ready(() => {
         data: preferences
       }).then(function(req, res) {
         console.log("preferences updated!");
-        // location.reload(true);
-        // res.render("profile", {user: req.user});
         window.location.replace("/profile");
 
       }).catch(err => {
