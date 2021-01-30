@@ -27,6 +27,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     city: {
       type: DataTypes.STRING,
+      allowNull: false,
       defaultValue: "Seattle"
     },
     vegan: {
