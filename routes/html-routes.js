@@ -42,7 +42,7 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
           }).then(dbUser => {
             console.log("DBUSER: " + dbUser);
 
-            let yelpURL = "https://api.yelp.com/v3/businesses/search?categories=";
+            let yelpURL = "https://api.yelp.com/v3/businesses/search?term=restaurants&categories=";
             if (dbUser.vegan) {
                 yelpURL += "Vegan";
             }
