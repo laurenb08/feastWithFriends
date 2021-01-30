@@ -21,6 +21,7 @@ router.post("/api/login", passport.authenticate("local"), (req, res) => {
 router.post("/api/signup", (req, res) => {
   db.Customer.create({
     name: req.body.name,
+    // city: req.body.city,
     email: req.body.email,
     password: req.body.password
   })
@@ -90,10 +91,14 @@ router.delete("/api/customers/:id", function(req, res) {
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
     console.log(req.body);
+    let city = "Seattle";
+    if(req.body.city != "") {
+      city = req.body.city;
+    }
 
     db.Customer.update({
       vegan: req.body.vegan,
-      city: req.body.city,
+      city: city,
       vegetarian: req.body.vegetarian,
       glutenIntolerance: req.body.glutenIntolerance,
       kosher: req.body.kosher
