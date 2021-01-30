@@ -14,32 +14,39 @@ Feast with Friends is a mobile and web application that recommends a list of res
 
 This application was created with the following User Story and Acceptance Criteria in mind:
 ```
-AS A person who has dietary restrictions
-I WANT to receive restaurant recommendations that take into account my dietary needs in a specific location
-SO THAT I can eat without worrying 
+AS A person with dietary restrictions
+I WANT to receive restaurant recommendations, which take into account my dietary restrictions and my chosen city 
+SO THAT I can feast with friends without worrying about having anaphylaxis
 ```
 ```
-GIVEN 
-WHEN
-THEN
-WHEN
-THEN
-WHEN
-THEN
+GIVEN that I want a customized restaurant recommendation
+WHEN I create an account
+THEN my account is saved in the database and I securely log into the profile page 
+WHEN I am brought to my profile page
+THEN I see my saved preferences and recommended restaurants based on my preferences
+WHEN I see the list of recommended restaurants 
+THEN I see the restaurants’ name, image, phone number, and website link 
+WHEN I update my preferences 
+THEN I see updated recommendations that reflect my latest preferences 
 ```
 
 ## Project-Location
 * [Repository] (https://github.com/laurenb08/project2)
-* [Deployed] ()
+* [Deployed] (https://feastwithfriendsproject.herokuapp.com/)
   
 ## Usage
 
+
 ## Installation
 In order to install this project, the following technologies were used:
+- MySQL, Node.js, Heroku, Axios, Yelp API, Passport
 
 ## Future-Direction
 Some future add-ons that would enhance our application include:
-- 
+- Creating a “Friends” function via Many-to-Many Relationships
+- Accommodate more dietary restrictions (e.g., Nut allergies, Shellfish allergies, Lactose intolerance)
+- Save favorite restaurants
+- Further refine the user profile by allowing profile picture, direct message feature, user contact info, links to other social networks, websites
   
 ## Credits
 - Sally Perez (https://github.com/SeattleSal)
@@ -50,6 +57,10 @@ Some future add-ons that would enhance our application include:
   
 ## Resources
 - Yelp API (https://www.yelp.com/developers/documentation/v3)
+- Unsplash: https://unsplash.com
+- Bootstrap
+- Postman
+- Sequelize Passport
 
 ## License
 Copyright (c) [2021] [Sally Perez, Lauren Plenger, Chetan Sekhon, Michael Bageant, Ellie Fu-Hinthorn]
