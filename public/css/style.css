@@ -80,6 +80,7 @@
 }
 
 #restaurantImg {
-    max-width: 250px;
-    height: auto;
+    max-width: 200px;
+    height: 200px;
+    object-fit: cover;
 }
