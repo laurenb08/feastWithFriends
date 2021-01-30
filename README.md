@@ -1,13 +1,13 @@
 # Feast with Friends
 ## Table of Contents
-* [Description] (#description)
-* [Project-Location] (#project-location)
-* [Usage] (#usage)
-* [Installation] (#installation)
-* [Future-Direction] (#future-direction)
-* [Credits] (#credits)
-* [Resources] (#resources)
-* [License] (#license)
+* [Description](#description)
+* [Project-Location](#project-location)
+* [Dependencies](#dependencies)
+* [Usage](#usage)
+* [Future-Direction](#future-direction)
+* [Credits](#credits)
+* [Resources](#resources)
+* [License](#license)
 
 ## Description
 Feast with Friends is a mobile and web application that recommends a list of restaurants that matches the users' dietary restrictions & specified location. Upon securely logging into our application and completing your profile, restaurant suggestions appear along with helpful details such as the restaurant's phone number, website URL, and image. 
@@ -34,12 +34,53 @@ THEN I see updated recommendations that reflect my latest preferences
 * [Repository] (https://github.com/laurenb08/project2)
 * [Deployed] (https://feastwithfriendsproject.herokuapp.com/)
   
+## Dependencies
+The dependencies are:
+<br>
+
+For the server and views:
+* [express](http://expressjs.com/)
+* [express-handlebars](https://www.npmjs.com/package/express-handlebars)
+* [express-handlebars-sections](https://www.npmjs.com/package/express-handlebars-sections)
+* [handlebars](https://handlebarsjs.com/)
+<br>
+
+For the customer database:
+* [mysql](https://www.npmjs.com/package/mysql)
+* [sequelize](https://www.npmjs.com/package/sequelize) 
+<br>
+
+For interaction with the Yelp API:
+* [axios](https://www.npmjs.com/package/axios) 
+<br>
+
+For the authorization and login ability:
+* [passport](https://www.npmjs.com/package/passport)
+* [passport-local](https://www.npmjs.com/package/passport-local)
+* [bcryptjs](https://www.npmjs.com/package/bcryptjs)
+* [express-session](https://www.npmjs.com/package/express-session)
+
+There is a `package.json` included, the following commands should be run to install dependencies:
+
+```bash
+npm i
+```
+
 ## Usage
+Use the links below to use the application live. If you prefer to run the application from your computer, you can use the following command after installing the dependencies:
+```bash
+node server.js
+```
 
+The application displays a login page with a form to enter the user's credentials (email and password). The user can go to the signup form if they do not have an account. Upon logging in or signing up, the user is brought to a profile page listing their dietary preferences, city and restaurant recommendations from Yelp. The user's dietary preferences and city are stored in the backend database. The user can update their dietary preferences and city and those updates will be stored in the database and new suggestions from Yelp will be displayed on the right. The user can logout and their data is saved and available to them whenever they log back in. 
 
-## Installation
-In order to install this project, the following technologies were used:
-- MySQL, Node.js, Heroku, Axios, Yelp API, Passport
+See Screenshots:<br>
+Login Page: <br>
+![Login](./assets/login.png)
+Sign Up: <br>
+![Sign Up](./assets/signup.png)
+Profile: <br>
+![Profile](./assets/profile.png)
 
 ## Future-Direction
 Some future add-ons that would enhance our application include:
@@ -56,11 +97,11 @@ Some future add-ons that would enhance our application include:
 - Ellie Fu-Hinthorn (https://github.com/elliefh)
   
 ## Resources
-- Yelp API (https://www.yelp.com/developers/documentation/v3)
-- Unsplash: https://unsplash.com
-- Bootstrap
-- Postman
-- Sequelize Passport
+- [Yelp API](https://www.yelp.com/developers/documentation/v3)
+- [Unsplash](https://unsplash.com)
+- [Bootstrap](https://getbootstrap.com/)
+- [Postman](https://www.postman.com/)
+- Sequelize Passport Example
 
 ## License
 Copyright (c) [2021] [Sally Perez, Lauren Plenger, Chetan Sekhon, Michael Bageant, Ellie Fu-Hinthorn]
