@@ -6,7 +6,6 @@ const exphbsSections = require("express-handlebars-sections");
 
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
-// const path = require("path"); do we need this?
 
 // Sets up the Express App
 // =============================================================
@@ -14,7 +13,6 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
-// const sequelize = require("./config/config.json");
 const db = require("./models");
 
 // Sets up the Express app to handle data parsing
@@ -29,7 +27,6 @@ app.set("view engine", "handlebars");
 
 // Static directory
 app.use(express.static("public"));
-// app.use(express.static(path.join(__dirname, "public"))); // use this one instead?
 
 // We need to use sessions to keep track of our user's login status
 app.use(

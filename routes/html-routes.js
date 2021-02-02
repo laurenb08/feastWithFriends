@@ -9,7 +9,6 @@ const API_KEY = process.env.DB_APIKEY
 
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
-// const { SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION } = require("constants");
 
 // Routes
 // =============================================================
@@ -40,7 +39,6 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
               id: req.user.id
             }
           }).then(dbUser => {
-            console.log("DBUSER: " + dbUser);
 
             let yelpURL = "https://api.yelp.com/v3/businesses/search?term=restaurants&categories=";
             if (dbUser.vegan) {
@@ -56,7 +54,7 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
                 yelpURL += "Gluten-Free";
             }
             yelpURL += `&location=${dbUser.city}&limit=6`;
-            console.log("YELP: " + yelpURL);
+            // console.log("YELP: " + yelpURL);
 
             axios.get(yelpURL, {
                 headers: {
@@ -64,7 +62,6 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
                 }
             }).then((results) => {
                 let restaurants = results.data.businesses;
-                console.log("DBUSER: " + dbUser.name);
                 let customer = {
                     id: dbUser.id,
                     name: dbUser.name,

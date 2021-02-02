@@ -85,7 +85,6 @@ router.delete("/api/customers/:id", function(req, res) {
   router.put("/api/customers", function(req, res) {
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
-    console.log(req.body);
     let city = "Seattle";
     if(req.body.city != "") {
       city = req.body.city;
@@ -103,7 +102,6 @@ router.delete("/api/customers/:id", function(req, res) {
       }
     }).then(function(dbCustomers) {
       res.json(dbCustomers);
-      console.log(dbCustomers);
     });
   });
 

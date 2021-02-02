@@ -1,5 +1,5 @@
+// kept for future development
 const {Sequelize, Model, DataTypes} = require("sequelize");
-// const sequelize = require("../config/index");
 
 module.exports = function(sequelize, DataTypes) {
     const Restaurant = sequelize.define("Restaurant", {

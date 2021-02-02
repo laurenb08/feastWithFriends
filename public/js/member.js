@@ -15,13 +15,10 @@ $(document).ready(() => {
         "glutenIntolerance": $("#glutenCheck").prop("checked") ? true : false,
         "kosher": $("#kosherCheck").prop("checked") ? true : false
       };
-      console.log(preferences);
-      console.log($('#profileName'))
       $.ajax("/api/customers/", {
         type: "PUT",
         data: preferences
       }).then(function(req, res) {
-        console.log("preferences updated!");
         window.location.replace("/profile");
 
       }).catch(err => {
