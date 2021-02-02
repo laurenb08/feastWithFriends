@@ -39,46 +39,53 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
               id: req.user.id
             }
           }).then(dbUser => {
-
-            let yelpURL = "https://api.yelp.com/v3/businesses/search?term=restaurants&categories=";
-            if (dbUser.vegan) {
-                yelpURL += "Vegan";
+            let {id, name, vegan, vegetarian, kosher, glutenIntolerance, city} = dbUser;
+            const yelpURL = "https://api.yelp.com/v3/businesses/search";
+            
+            let categories = "";
+            if (vegan) {
+                categories += "Vegan";
             }
-            if (dbUser.vegetarian) {
-                yelpURL += "Vegetarian";
+            if (vegetarian) {
+                categories += "Vegetarian";
             }
-            if (dbUser.kosher) {
-                yelpURL += "Kosher";
+            if (kosher) {
+                categories += "Kosher";
             }
-            if (dbUser.glutenIntolerance) {
-                yelpURL += "Gluten-Free";
+            if (glutenIntolerance) {
+                categories += "Gluten-Free";
             }
-            yelpURL += `&location=${dbUser.city}&limit=6`;
-            // console.log("YELP: " + yelpURL);
 
             axios.get(yelpURL, {
                 headers: {
                     Authorization: `Bearer ${API_KEY}`,
+                },
+                params: {
+                    // term: 'tacos',
+                    location: city,
+                    term: "restaurant",
+                    categories: categories,
+                    limit: 6
                 }
             }).then((results) => {
                 let restaurants = results.data.businesses;
                 let customer = {
-                    id: dbUser.id,
-                    name: dbUser.name,
-                    city: dbUser.city,
-                    vegan: dbUser.vegan,
-                    vegetarian: dbUser.vegetarian,
-                    kosher: dbUser.kosher,
-                    glutenIntolerance: dbUser.glutenIntolerance
+                    id: id,
+                    name: name,
+                    city: city,
+                    vegan: vegan,
+                    vegetarian: vegetarian,
+                    kosher: kosher,
+                    glutenIntolerance: glutenIntolerance
                 }
+                // console.log(customer);
                 let profileObject = {user: customer, restaurants: restaurants};
-
                 res.render("profile", profileObject);
             }).catch((error) => {
-                console.log(error);
+                console.log("Yelp call error: " + error);
             });
-        }).catch((err) => {
-            console.log("profile error: " + err);
+        }).catch((error) => {
+            console.log("Profile error: " + error);
         });
     });
 

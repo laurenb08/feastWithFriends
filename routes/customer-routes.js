@@ -4,7 +4,7 @@ const router = require("express").Router();
 const passport = require("../config/passport");
 
 // Using the passport.authenticate middleware with our local strategy.
-// If the user has valid login credentials, send them to the members page.
+// If the user has valid login credentials, send them to the profile page.
 // Otherwise the user will be sent an error
 router.post("/api/login", passport.authenticate("local"), (req, res) => {
   // Sending back a password, even a hashed password, isn't a good idea
@@ -35,21 +35,6 @@ router.post("/api/signup", (req, res) => {
 router.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
-});
-
-// Route for getting some data about our user to be used client side
-router.get("/api/user_data", (req, res) => {
-  if (!req.user) {
-    // The user is not logged in, send back an empty object
-    res.json({});
-  } else {
-    // Otherwise send back the user's email and id
-    // Sending back a password, even a hashed password, isn't a good idea
-    res.json({
-      email: req.user.email,
-      id: req.user.id
-    });
-  }
 });
 
 // GET route for getting all of the customers
