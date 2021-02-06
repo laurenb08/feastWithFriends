@@ -47,12 +47,21 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
                 categories += "Vegan";
             }
             if (vegetarian) {
+                if (categories != "") {
+                    categories += ",";
+                }
                 categories += "Vegetarian";
             }
             if (kosher) {
+                if (categories != "") {
+                    categories += ",";
+                }
                 categories += "Kosher";
             }
             if (glutenIntolerance) {
+                if (categories != "") {
+                    categories += ",";
+                }
                 categories += "Gluten-Free";
             }
 
@@ -62,12 +71,15 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
                 },
                 params: {
                     // term: 'tacos',
+                    // sort_by: 'best_match' || rating || review_count || distance
+                    // open_now
                     location: city,
-                    term: "restaurant",
-                    categories: categories,
-                    limit: 6
+                    term: `restaurants, ${categories}`,
+                    // categories: categories,
+                    limit: 6 // default returns 20 results
                 }
             }).then((results) => {
+                
                 let restaurants = results.data.businesses;
                 let customer = {
                     id: id,
@@ -78,7 +90,6 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
                     kosher: kosher,
                     glutenIntolerance: glutenIntolerance
                 }
-                // console.log(customer);
                 let profileObject = {user: customer, restaurants: restaurants};
                 res.render("profile", profileObject);
             }).catch((error) => {
