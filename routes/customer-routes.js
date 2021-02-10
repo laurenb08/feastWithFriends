@@ -51,7 +51,7 @@ router.get("/api/customers/:id", function (req, res) {
         id: req.params.id
       } // add include if we decide to reference other tables
     }).then(function(dbCustomer) {
-      res.render("index", dbCustomer);
+      res.render("profile", dbCustomer);
     });
   });
 
