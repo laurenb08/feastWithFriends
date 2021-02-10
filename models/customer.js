@@ -49,6 +49,13 @@ module.exports = function(sequelize, DataTypes) {
 
   });
 
+  // Customer can have many favorite restaurants
+  Customer.associate = function(models) {
+    Customer.hasMany(models.Restaurant, {
+      onDelete: "cascade"
+    });
+  };
+
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   Customer.prototype.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
