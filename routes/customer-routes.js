@@ -90,4 +90,20 @@ router.delete("/api/customers/:id", function(req, res) {
     });
   });
 
+  // PUT add favorite restaurant to customer
+  router.post("/api/restaurant", ({body}, res) => {
+    db.Restaurant.create({
+      customerID: body.id,
+      yelp_name: body.yelp_name,
+      yelp_id: body.yelp_id,
+      yelp_image_url: body.yelp_image_url
+    })
+      .then(() => {
+        res.redirect(307, "/api/login");
+      })
+      .catch(err => {
+        res.status(401).json(err);
+      });
+  });
+
 module.exports = router;
