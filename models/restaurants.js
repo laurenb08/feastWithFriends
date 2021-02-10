@@ -15,6 +15,10 @@ module.exports = function(sequelize, DataTypes) {
         yelp_image_url: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        yelp_url: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
     });
 

@@ -42,8 +42,8 @@ const authRoutes = require("./routes/customer-routes");
 app.use(customerRoutes, authRoutes);
 
 // use first one to reset database during testing, otherwise use second line
-db.sequelize.sync({ force: true }).then(function () {
-// db.sequelize.sync().then(function () {
+// db.sequelize.sync({ force: true }).then(function () {
+db.sequelize.sync().then(function () {
   app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
   })
