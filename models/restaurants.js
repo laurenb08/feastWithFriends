@@ -27,8 +27,8 @@ module.exports = function(sequelize, DataTypes) {
         Restaurant.belongsTo(models.Customer, {
             foreignKey: {
                 allowNull: false
-            }
-        })
+              }
+            })
     };
 
     return Restaurant;

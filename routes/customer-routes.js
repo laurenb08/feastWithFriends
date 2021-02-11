@@ -90,20 +90,55 @@ router.delete("/api/customers/:id", function(req, res) {
     });
   });
 
-  // PUT add favorite restaurant to customer
+  // PUT add new favorite restaurant to customer
   router.post("/api/restaurant", ({body}, res) => {
     db.Restaurant.create({
-      customerID: body.id,
+      CustomerId: body.CustomerId,
       yelp_name: body.yelp_name,
       yelp_id: body.yelp_id,
-      yelp_image_url: body.yelp_image_url
+      yelp_image_url: body.yelp_image_url,
+      yelp_url: body.yelp_url
     })
-      .then(() => {
-        res.redirect(307, "/api/login");
+      .then((dbUser) => {
+        res.json(dbUser);
       })
       .catch(err => {
+        console.log(err);
         res.status(401).json(err);
       });
+  });
+
+    // GET all favorite restaurants 
+    router.get("/api/restaurants/", (req, res) => {
+      db.Restaurant.findAll({})
+      .then(function( dbRestaurants ) {
+        res.json( dbRestaurants );
+      })
+    });
+
+  // GET all favorite restaurants for a specific customer
+  router.get("/api/restaurants/:customer_id", (req, res) => {
+    db.Restaurant.findAll({
+      // where customer id
+      where: {
+        CustomerId: req.params.customer_id
+      }
+    })
+    .then(function( dbRestaurants ) {
+      res.json( dbRestaurants );
+    })
+  });
+
+  // DELETE a favorite restaurant for customer by favo
+  router.delete("/api/restaurants/:id", function(req, res) {
+    db.Restaurant.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(function(dbRestaurants) {
+      res.json(dbRestaurants);
+    });
   });
 
 module.exports = router;
