@@ -14,11 +14,7 @@
     "dialect": "mysql"
   },
   "production": {
-    // "use_env_variable": "JAWSDB_URL",
-    "username": null,
-    "password": null,
-    "database": null,
-    "host": null,
+    "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
   }
 }
