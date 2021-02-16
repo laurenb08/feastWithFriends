@@ -1,86 +1,98 @@
-.background{
-    background-image: url("../img/brooke-lark-wMzx2nBdeng-unsplash.jpg");
-    background-size: 100%;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-    width: 100%;
-    padding: 75px;
-    margin: 0;
-    font-family: 'Josefin Slab', serif;
-    font-size: 25px;
+.background {
+  background-image: url("../img/brooke-lark-wMzx2nBdeng-unsplash.jpg");
+  background-size: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  padding: 75px;
+  margin: 0;
+  font-family: "Josefin Slab", serif;
+  font-size: 25px;
 }
 
-.login{
-    background-color: rgba(123, 163, 131, 0.5);
-    vertical-align: middle !important;
-    margin: 100px;
-    padding: 50px;
-    font-family: 'Josefin Slab', serif;
-    font-size: 25px;
+.login {
+  background-color: rgba(123, 163, 131, 0.5);
+  vertical-align: middle !important;
+  margin: 100px;
+  padding: 50px;
+  font-family: "Josefin Slab", serif;
+  font-size: 25px;
 }
 
 .profilePage {
-    background-image: url("../img/bec4c2.png");
-    background-size: 100%;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    font-family: 'Josefin Slab', serif;
-    font-size: 25px;
+  background-image: url("../img/bec4c2.png");
+  background-size: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: "Josefin Slab", serif;
+  font-size: 25px;
 }
 
-.signup{
-    background-color: rgba(123, 163, 131, 0.5);
-    vertical-align: middle !important;
-    margin: 125px;
-    padding: 75px;
-    font-family: 'Josefin Slab', serif;
-    font-size: 25px;
+.signup {
+  background-color: rgba(123, 163, 131, 0.5);
+  vertical-align: middle !important;
+  margin: 125px;
+  padding: 75px;
+  font-family: "Josefin Slab", serif;
+  font-size: 25px;
 }
 
 #profileColumn {
-    vertical-align: middle !important;
-    font-family: 'Josefin Slab', serif;
-    font-size: 25px;
+  vertical-align: middle !important;
+  font-family: "Josefin Slab", serif;
+  font-size: 25px;
 }
 
 #profileName {
-
-    font-family: 'Amatic SC', cursive;
-    font-size: 75px;
+  font-family: "Amatic SC", cursive;
+  font-size: 75px;
 }
 
-.signupHeader{
-    text-align: center;
+.signupHeader {
+  text-align: center;
 }
 
-.loginLink{
-    text-align: center;
+.loginLink {
+  text-align: center;
 }
 
-.header{
-    font-family: 'Amatic SC', cursive;
-    font-size: 150px;
-    text-align: center;
+.header {
+  font-family: "Amatic SC", cursive;
+  font-size: 150px;
+  text-align: center;
 }
 
-.profileHeader{
-    font-family: 'Amatic SC', cursive;
-    font-size: 100px;
-    text-align: left;
-    
+.profileHeader {
+  font-family: "Amatic SC", cursive;
+  font-size: 100px;
+  text-align: left;
 }
 
 #restaurantImg {
-    max-width: 200px;
-    height: 200px;
-    object-fit: cover;
+  max-width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.aboutUs {
+  background-color: rgba(123, 163, 131, 0.5);
+  vertical-align: middle !important;
+  max-width: 60%;
+  margin: 125px;
+  padding: 75px;
+  font-family: "Josefin Slab", serif;
+  font-size: 25px;
+}
+
+.profileInfo {
+    background-color: rgba(123, 163, 131, 0.5);
 }

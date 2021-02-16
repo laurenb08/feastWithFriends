@@ -1,0 +1,148 @@
+<div class="profilePage">
+    <h1 class="header">Welcome Name!</h1>
+    <div class="container-fluid mp-5">
+        <div class="row">
+            <div class="d-flex justify-content-center col-4 align-middle">
+                <div class="container">
+                    <h2 class="profileInfo text-center">
+                        Your Profile Info:
+                    </h2>
+                    <h2 class="text-center">
+                        <div data-id="{{user.id}}">Name: {{user.name}}</div>
+                        <div data-id="{{user.id}}">Email: {{user.email}}</div>
+                    </h2>
+                    <form>
+                        <h3 class="text-center">Update Email Address:</h3>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1"></label>
+                            <input type="email" class="form-control" id="updateEmail" aria-describedby="emailHelp"
+                                placeholder="Enter new email" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+                    <form>
+                        <h3 class="text-center">Update Password:</h3>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput"></label>
+                            <input type="text" class="form-control" id="formGroupExampleInput"
+                                placeholder="Current Password" />
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2"></label>
+                            <input type="text" class="form-control" id="formGroupExampleInput2"
+                                placeholder="Enter New Password" />
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2"></label>
+                            <input type="text" class="form-control" id="formGroupExampleInput2"
+                                placeholder="Enter New Password Again" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center col-4 align-middle">
+                <div class="container">
+                    <h2 class="profileInfo text-center">Your current dietary restrictions:</h2>
+                    <form class="m-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="veganCheck" {{#if user.vegan}}
+                                checked {{/if}} />
+                            <label class="change-vegan" for="veganCheck">
+                                Vegan
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="vegetarianCheck" {{#if
+                                user.vegetarian}} checked {{/if}} />
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Vegetarian
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="glutenCheck" {{#if
+                                user.glutenIntolerance}} checked {{/if}} />
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Gluten Free
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="kosherCheck" {{#if
+                                user.kosher}} checked {{/if}} />
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Kosher
+                            </label>
+                        </div>
+                    </form>
+                    <h3 class="text-center">Update your dietary restrictions:</h3>
+                    <form class="m-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="veganCheck" {{#if user.vegan}}
+                                checked {{/if}} />
+                            <label class="change-vegan" for="veganCheck">
+                                Vegan
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="vegetarianCheck" {{#if
+                                user.vegetarian}} checked {{/if}} />
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Vegetarian
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="glutenCheck" {{#if
+                                user.glutenIntolerance}} checked {{/if}} />
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Gluten Free
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="kosherCheck" {{#if
+                                user.kosher}} checked {{/if}} />
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Kosher
+                            </label>
+                        </div>
+                        <button type="button" class="btn btn-secondary justify-items-center mt-3"
+                            id="update-preferences">
+                            Update Preferences
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center col-4 align-middle">
+                <div class="container">
+                    <!-- input friends info here -->
+                    <h2 class="profileInfo text-center">Your friends:</h2>
+                    <div id="restaurantColumn"
+                        class="col-md-7 d-inline-flex flex-column justify-content-center align-items-center pt-3">
+                        <div class="container gx-3">
+                            <div class="row">
+                                <div class="container-fluid d-flex flex-wrap justify-content between mb-0">
+                                    <!-- Restaurant Cards Populate Here with #each -->
+                                    {{#each friends}}
+                                    <div class="card p-3 bg-light m-1">
+                                        <div class="card-body">
+                                            <h3 class="card-title">{{this.name}}</h3>
+                                            <p class="card-text">{{this.vegan}}</p>
+                                            <p class="card-text">{{this.vegetarian}}</p>
+                                            <p class="card-text">{{this.glutenIntolerance}}</p>
+                                            <p class="card-text">{{this.kosher}}</p>
+                                            <h4 class="card-body">
+                                                <a href="#" class="card-link">Add to Party</a>
+                                                <a href="#" class="card-link">Remove Friend</a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
