@@ -20,6 +20,10 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
         res.render("index");
     });
 
+    router.get("/userProfile", function (req, res) {
+        res.render("userProfile");
+    });
+
     router.get("/login", function (req, res) {
         if (req.user) {
             res.redirect("/profile");
@@ -29,6 +33,10 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 
     router.get("/signup", function (req, res) {
         res.render("signup");
+    });
+
+    router.get("/about", function (req, res) {
+        res.render("about");
     });
 
     // passport.authenticate("local")
